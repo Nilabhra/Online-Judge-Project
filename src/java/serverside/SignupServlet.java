@@ -1,3 +1,4 @@
+package serverside;
 /*
  *  
  "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. 
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import static org.apache.tomcat.jni.User.username;
 
 /**
  *
