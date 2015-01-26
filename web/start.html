@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Welcome to the Online Judge</title>
+</head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+	<link href="start/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="start/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="start/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+	<link href="start/css/templatemo_style.css" rel="stylesheet" type="text/css">	
+<body>
+ 
+	<div class="templatemo-header">
+		<div class="container">
+			<div class="col-md-12">
+				<h1 class="logo pull-left"></h1>		
+				<form  method="POST" action="start" class="form-inline pull-right" role="form">
+				  <div class="form-group">
+				    <div class="input-group">
+				      <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+                                      
+				      <input class="form-control" name ="usr" type="text" placeholder="username">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="sr-only" for="password">Password</label>
+				    <input type="password" class="form-control" id="password" placeholder="Password">
+				    <div class="checkbox">
+					    <label class="font-size-small">
+					      <input type="checkbox"> Remember me
+					    </label>
+					</div>
+				  </div>
+				  <input type="submit" class="btn btn-default" value="Sign in" >
+				</form>
+			</div> <!-- col-md-12 -->
+		</div> <!-- container -->
+	</div>	
+    </form>
+<style type="text/css">
+body{
+	 background:#202020;
+	 font:bold 12px Arial, Helvetica, sans-serif;
+	 margin:0;
+	 padding:0;
+	 min-width:960px;
+	  background: url('abc.jpeg') no-repeat center top;
+}
+
+a { 
+	text-decoration:none; 
+	color:#00c6ff;
+}
+
+h1 {
+	font: 4em normal Arial, Helvetica, sans-serif;
+	padding: 20px;	margin: 0;
+	text-align:center;
+	 color:RED;
+}
+
+h1 small{
+	font: 0.2em normal  Arial, Helvetica, sans-serif;
+	text-transform:uppercase; letter-spacing: 0.2em; line-height: 5em;
+	display: block;
+	color:RED
+}
+
+h2 {
+    color:RED;
+    font-size:3em;
+	text-align:center;
+	text-shadow:0 1px 3px #161616;
+}
+
+.container {width: 960px; margin: 0 auto; overflow: hidden;}
+
+#content {	float: left; width: 100%;}
+
+.post { margin: 0 auto; padding-bottom: 50px; float: left; width: 960px; }
+
+.btn-sign {
+	width:350px;
+	margin-bottom:20px;
+	margin:0 auto;
+	padding:20px;
+	border-radius:5px;
+	background: -moz-linear-gradient(center top, #00c6ff, #018eb6);
+    background: -webkit-gradient(linear, left top, left bottom, from(#00c6ff), to(#018eb6));
+	background:  -o-linear-gradient(top, #00c6ff, #018eb6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#00c6ff', EndColorStr='#018eb6');
+	text-align:center;
+	font-size:36px;
+	color:#gff;
+	
+}
+
+.btn-sign a { color:#fff; text-shadow:0 100px 150px #161616; }
+
+#mask {
+	display: none;
+	background: #000; 
+	position: fixed; left: 13px; top: 12px; 
+	z-index: 10;
+	width: 100%; height: 100%;
+	opacity: 0.8;
+	z-index: 999;
+}
+
+.login-popup{
+	display:none;
+	background: #333;
+	padding: 10px; 	
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 99999;
+	box-shadow: 0px 0px 20px #999;
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+
+img.btn_close {
+	float: right; 
+	margin: -28px -28px 0 0;
+}
+
+fieldset { 
+	border:none; 
+}
+
+form.signin .textbox label { 
+	display:block; 
+	padding-bottom:7px; 
+}
+
+form.signin .textbox span { 
+	display:block;
+}
+
+form.signin p, form.signin span { 
+	color:#999; 
+	font-size:11px; 
+	line-height:18px;
+} 
+
+form.signin .textbox input { 
+	background:#666666; 
+	border-bottom:1px solid #333;
+	border-left:1px solid #000;
+	border-right:1px solid #333;
+	border-top:1px solid #000;
+	color:#fff; 
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+	font:13px Arial, Helvetica, sans-serif;
+	padding:6px 6px 4px;
+	width:200px;
+}
+
+form.signin input:-moz-placeholder { color:#bbb; text-shadow:0 0 2px #000; }
+form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #000;  }
+
+.button { 
+	background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+	background:  -o-linear-gradient(top, #f3f3f3, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+	border-color:#000; 
+	border-width:1px;
+	border-radius:4px 4px 4px 4px;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	color:#334;
+	cursor:pointer;
+	display:inline-block;
+	padding:6px 6px 4px;
+	margin-top:10px;
+	font:12px; 
+	width:214px;
+}
+
+.button:hover { background:#ddd; }
+
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('a.login-window').click(function() {
+		
+		// Getting the variable's value from a link 
+		var loginBox = $(this).attr('href');
+
+		//Fade in the Popup and add close button
+		$(loginBox).fadeIn(300);
+		
+		//Set the center alignment padding + border
+		var popMargTop = ($(loginBox).height() + 24) / 2; 
+		var popMargLeft = ($(loginBox).width() + 24) / 2; 
+		
+		$(loginBox).css({ 
+			'margin-top' : -popMargTop,
+			'margin-left' : -popMargLeft
+		});
+		
+		// Add the mask to body
+		$('body').append('<div id="mask"></div>');
+		$('#mask').fadeIn(300);
+		
+		return false;
+	});
+	
+	// When clicking on the button close or the mask layer the popup closed
+	$('a.close, #mask').live('click', function() { 
+	  $('#mask , .login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
+	return false;
+	});
+});
+</script>
+
+<h1>The Online Judge Project</h1>
+<div class="container">
+	<div id="content">
+    
+		<div class="post">
+    	<h2>Welcome to our world!</h2>
+        	<br><br><br><br><br><br><br><br><br><br>
+			<!--div class="btn-sign">
+				<a href="#login-box" class="login-window">Login / Sign In</a>
+				
+        	</div-->
+			<div class="btn-sign">
+			
+			<a href="#login-box1" class="login-window">Sign Up!</a>
+		    </div>
+		</div>
+        <div id="login-box" class="login-popup">
+         <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+          <form method="post" class="signin" action="index.html">
+                <fieldset class="textbox">
+            	<label class="username">
+                <span>Username or email</span>
+                <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+                </label>
+                
+                <label class="password">
+                <span>Password</span>
+                <input id="password" name="password" value="" type="password" placeholder="Password">
+                </label>
+                
+                <button class="submit button" type="button">Sign in</button>
+
+                <p>
+                <a class="forgot" href="#">Forgot your password?</a>
+                </p>
+                
+                </fieldset>
+          </form>
+		</div>
+		<div id="login-box1" class="login-popup">
+         <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+          <form method="post" class="signin" action="sup">
+                <fieldset class="textbox">
+            	<label class="username">
+                <span> Username</span>
+                <input id="username" name="usr" value="" type="text" autocomplete="on" placeholder="Username" required = "true">
+                </label>
+                <label class="username">
+                <span> Email</span>
+                <input id="username" name="email" value="" type="email" autocomplete="on" placeholder="Email" required="true">
+                </label>
+                
+                <label class="password">
+                <span>Password</span>
+                <input id="password" name="pass" value="" type="password" placeholder="Password" required="true">
+                </label>
+                
+                <input class="submit button" type="submit" value="Create account">
+				
+                
+                </fieldset>
+          </form>
+		</div>
+
+    
+    </div>
+</div>
+
+</body>
+</html>
