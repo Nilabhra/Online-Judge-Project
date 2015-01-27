@@ -10,6 +10,7 @@ package db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import user.User;
 
@@ -38,26 +39,50 @@ public class Account {
         user.setEmail("rajarsheem@gmail.com");
         user.setCountry("India");
         user.setName("Rajarshee Mitra");        
-        a.insertUser(user);
+        //a.insertUser(user);
+        System.out.println(a.userExists("rajarsheem"));
         a.close();
        
     }
 
-    void insertUser(User us) throws SQLException {
+    public void insertUser(User us) throws SQLException {
         String s = " insert into accounts (username, password, name, email,country, signup_date)"
                 + " values (?, ?, ?, ?, ?, ?)";
-
-        PreparedStatement preparedStmt = conn.prepareStatement(s);
+        
+        try(PreparedStatement preparedStmt = conn.prepareStatement(s)) {
         preparedStmt.setString(1, us.getUsername());
         preparedStmt.setString(2, us.getPassword());
         preparedStmt.setString(3, us.getName());
-        preparedStmt.setString(4, us.getCountry());
-        preparedStmt.setDate(5, us.getDate());
+        preparedStmt.setString(4, us.getEmail());
+        preparedStmt.setString(5, us.getCountry());
+        preparedStmt.setDate(6, us.getDate());
 
         preparedStmt.execute();
+        
         preparedStmt.close();
+        }
+        catch(Exception e)
+        {
+            if(e.toString().contains("Duplicate entry"))
+                System.out.println("User exists");
+        }
     }
     
+    public boolean userExists(String usr) throws SQLException
+    {
+        boolean answer=false;
+        String s = "SELECT * FROM accounts WHERE username='"+usr+"'";
+        try(PreparedStatement preparedStmt = conn.prepareStatement(s);ResultSet rs = preparedStmt.executeQuery()){            
+        answer = rs.next();              
+        }
+        catch(SQLException sqle)
+        {
+            System.err.println(sqle);
+        }
+        finally {
+        return answer;
+        }
+    }
     void close() throws SQLException
     {
         conn.close();

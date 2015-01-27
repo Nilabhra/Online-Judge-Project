@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import db.Account;
+import user.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author okay
@@ -22,16 +26,34 @@ public class SignupServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession hs = request.getSession(false);
-        String content;
+        String content="NULL";
         if (hs != null) {
             content = "You are already logged in as " + hs.getAttribute("usr")+"</br>You may <a href =\"http://localhost:8084/cc/logout \">Logout</a> here.";
         } else {
-            String username = request.getParameter("usr");
-            String email = request.getParameter("email");
-            String password = request.getParameter("pass");
-            hs = request.getSession();
-            hs.setAttribute("usr", username);
-            content = "You have successfully created your account! </br> Your username = " + username + "</br>Your email = " + email;
+            
+            try {
+                Account acc = new Account();
+                String username = request.getParameter("usr");
+                if(acc.userExists(username)) //check user exists or not
+                {
+                    content = "You are already registered!";
+                }
+                else { // if new user
+                    String email = request.getParameter("email");
+                    String password = request.getParameter("pass");
+                    User user = new User();
+                    user.setUsername(username);
+                    user.setPassword(password);
+                    user.setEmail(email);
+                    acc.insertUser(user);
+                    hs = request.getSession();
+                    hs.setAttribute("usr", username);
+                    
+                    content = "You have successfully created your account! </br> Your username = " + username + "</br>Your email = " + email;
+                }
+            } catch (SQLException | ClassNotFoundException ex) {
+                System.err.println(ex);
+            }
         }
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -40,7 +62,7 @@ public class SignupServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SignupServlet</title>");
+            out.println("<title>Signup!</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Signup information!</h1>");

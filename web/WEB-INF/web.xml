@@ -2,20 +2,22 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>ProblemServlet</servlet-name>
-        <servlet-class>ProblemServlet</servlet-class>
+        <servlet-class>serverside.ProblemServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StartServlet</servlet-name>
-        <servlet-class>StartServlet</servlet-class>
+        <servlet-class>serverside.StartServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>Logout</servlet-class>
+        <servlet-class>serverside.Logout</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SignupServlet</servlet-name>
-        <servlet-class>SignupServlet</servlet-class>
+        <servlet-class>serverside.SignupServlet</servlet-class>
     </servlet>
+    
+    
     <servlet-mapping>
         <servlet-name>ProblemServlet</servlet-name>
         <url-pattern>/p1</url-pattern>
